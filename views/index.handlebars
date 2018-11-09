@@ -1,0 +1,12 @@
+{{> header }}
+
+<div class="container content">
+    <h1>Taco App</h1>
+
+    {{> addTaco }}
+    
+    <div class="content-burger">
+        {{#each result}} {{> displayTaco }}{{/each}}
+    </div>
+
+</div>
