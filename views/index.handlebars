@@ -1,12 +1,37 @@
-{{> header }}
-
-<div class="container content">
-    <h1>Taco App</h1>
-
-    {{> addTaco }}
-    
-    <div class="content-burger">
-        {{#each result}} {{> displayTaco }}{{/each}}
+<main>
+  <div class="jumbotron jumbotron-fluid header">
+    <div class="container">
+      <h1 class="display-4 text-center text-light">Taco's</h1>
+      <p class="lead"></p>
     </div>
+  </div>
+  <div class="container">
+    <div class="row rounded">
+      <div class="col-4 rounded notDevoured border">
+        {{#each taco}}
+        {{#unless devoured}}
+        {{> taco/taco-block devoured=false}}
+        {{/unless}}
+        {{/each}}
+      </div>
+      <div class="col-4 mid justify-content-center">
+        <h2 class="text-center" align="center">Add a Taco</h2>
+        <form class="create-form" align="center">
 
-</div>
+          <div class="form-group">
+            <input type="text" id="ca" name="name" placeholder="    Your style burger">
+          </div>
+
+          <button type="submit" class=" btn-lg btn-danger">Add Taco</button>
+        </form>
+      </div>
+      <div class="col-4 rounded devoured border">
+       {{#each taco}}
+        {{#unless devoured}}
+        {{> taco/taco-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>
