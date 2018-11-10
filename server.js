@@ -18,12 +18,10 @@ app.set("view engine", "handlebars");
 
 const routes = require("./controllers/tacos_controllers");
 
-// stack overflow app.use(function( req, res, next){
-// next();
-/// });
 app.use(function( req, res, next){
     next();
-    });
+ });
+// app.use(routes)
 
 app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);
