@@ -1,0 +1,73 @@
+<section class="slider">
+    <ul class="slides">
+      <li>
+        <img src="https://images.unsplash.com/photo-1538861511527-05d3cdba4483?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89c422e65ddf178df6c183b96b554ef7&auto=format&fit=crop&w=1272&q=80">
+        <!-- random image -->
+        <div class="caption center-align">
+          <h2></h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://images.unsplash.com/photo-1535567952412-219226693102?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf74e021ddcfa77f09a3496757693770&auto=format&fit=crop&w=1234&q=80">
+        <!-- random image -->
+        <div class="caption right-align">
+          <h2>CREATE YOUR OWN TACOS!!</h2>
+          <h5 class="dark grey-text text-lighten-3 hide-on-small-only"></h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://images.unsplash.com/photo-1529268127899-36bf4524c254?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=11ab04e5c93d6f599135559159e76e55&auto=format&fit=crop&w=1050&q=80">
+        <!-- random image -->
+        <div class="caption right-align">
+          <h2>TACO TIME</h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
+        </div>
+      </li>
+    </ul>
+  </section>
+ 
+<div class="container">
+<div class="row">
+  <div class="notDevoured rounded col-lg-4">
+
+<h2 class="text-center">Taco Not Devoured!</h2>
+
+<ul>
+  {{#each tacos}}
+    {{#unless devoured}}
+      <p>{{id}}: {{taco_type}}</p>
+      {{> tacos/taco-block}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+  </div>
+  <div class="col-lg-4">
+    <h2 class="text-center m-1">Create A Taco</h2>
+<form class="create-form m-1">
+
+  <div class="form-group d-flex justify-content-center m-1">
+    <input type="text" id="ca" name="taco_type" class="rounded" placeholder="Create Taco!">
+  </div>
+  <div class="d-flex justify-content-center m-1">
+    <button type="submit" class= "btn btn-danger">Add Taco</button>
+  </div>
+
+  
+</form>
+  </div>
+  <div class="col-lg-4 devoured rounded">
+<h2 class="text-center">Devoured!</h2>
+
+<ul>
+  {{#each tacos}}
+    {{#unless devoured}}
+      <p>{{id}}: {{taco_type}}</p>
+      {{> tacos/taco-block}}
+    {{/unless}}
+  {{/each}}
+</ul>
+  </div>
+</div>
+</div>

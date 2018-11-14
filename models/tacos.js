@@ -1,4 +1,4 @@
-let orm = require("../config/orm");
+let orm = require("../config/orm.js");
 
 let tacos = {
     all: function(cb) {
@@ -23,4 +23,4 @@ let tacos = {
     }  
 };
 
-module.exports = tacos
+module.exports = tacos;

@@ -2,7 +2,7 @@ let express = require("express");
 
 let router = express.Router();
 
-let taco = require("../models/tacos");
+let taco = require("../models/tacos.js");
 
 router.get("/", function(req, res){
     taco.all(function(data){
@@ -13,15 +13,20 @@ router.get("/", function(req, res){
         res.render("index", tacoObject);
     });
 });
-router.post("/api/tacos", function(req,res){
-    taco.create ([
+router.get("/api/tacos", function(req,res){
+    taco.all(function(data){
+      res.send(data);
+    })
+  })
+
+  router.post("/api/tacos", (req, res) => {
+    taco.create([
         "taco_type", "devoured"
-    ],[
-        req.body.taco_type, req.body.devoured
-    ], function(result){
-        res.json({id: result.insertId});
+    ], [req.body.taco_type, 0], result => {
+        
+        res.redirect('/')
     });
-});
+  });
 router.put("/api/tacos/:id", function(req, res){
     let condition = "id= " + req.params.id;
     console.log ("condition", condition);
@@ -48,3 +53,5 @@ router.delete("/api/tacos/:id", function(req,res){
         }
     });
 });
+
+module.exports = router
